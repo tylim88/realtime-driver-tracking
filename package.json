@@ -8,7 +8,8 @@
 		"build": "pkgroll --clean-dist && tsup",
 		"test": "vitest",
 		"lint": "npx @biomejs/biome check --write",
-		"npx": "tsx npx"
+		"npx": "tsx npx",
+		"dev": "tsx watch src/index.ts"
 	},
 	"bin": {
 		"my-app": "./bin/index.cjs"
@@ -55,5 +56,9 @@
 		},
 		"author": "???",
 		"license": "???"
+	},
+	"dependencies": {
+		"@elysiajs/node": "^1.4.2",
+		"elysia": "^1.4.19"
 	}
 }
