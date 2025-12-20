@@ -4,12 +4,13 @@ import {
 	timestamp,
 	doublePrecision,
 	primaryKey,
+	varchar,
 } from 'drizzle-orm/pg-core'
 
 export const driver_locations = pgTable(
 	'driver_locations',
 	{
-		driver_id: text('driver_id').notNull(),
+		driver_id: varchar('driver_id', { length: 30 }).notNull(),
 		latitude: doublePrecision('latitude').notNull(),
 		longitude: doublePrecision('longitude').notNull(),
 		recorded_at: timestamp('recorded_at', {
