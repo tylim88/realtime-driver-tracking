@@ -1,2 +1,2 @@
 export * from './__client'
-export * from './schema'
+export * from './driver.location'
