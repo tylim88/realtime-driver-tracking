@@ -1,5 +1,6 @@
 import { Elysia, t } from 'elysia'
-import { driver_locations, db } from '@/db'
+import { driverLocations_schema, db } from '@/db'
+import { driverLocations_pub } from '@/pubsub'
 
 export const event_post = new Elysia().post(
 	'/event',
@@ -8,8 +9,16 @@ export const event_post = new Elysia().post(
 			data: { driver_id, latitude, longitude, timestamp },
 		},
 	}) => {
-		await db
-			.insert(driver_locations)
+		const recorded_at = timestamp
+		const p1 = driverLocations_pub(driver_id, [
+			{
+				latitude,
+				longitude,
+				recorded_at,
+			},
+		])
+		const p2 = db
+			.insert(driverLocations_schema)
 			.values({
 				driver_id,
 				latitude,
@@ -17,7 +26,10 @@ export const event_post = new Elysia().post(
 				recorded_at: new Date(timestamp),
 			})
 			.onConflictDoUpdate({
-				target: [driver_locations.driver_id, driver_locations.recorded_at],
+				target: [
+					driverLocations_schema.driver_id,
+					driverLocations_schema.recorded_at,
+				],
 				set: {
 					latitude,
 					longitude,

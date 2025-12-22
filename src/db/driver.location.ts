@@ -1,13 +1,12 @@
 import {
-	pgTable,
-	text,
-	timestamp,
 	doublePrecision,
+	pgTable,
 	primaryKey,
+	timestamp,
 	varchar,
 } from 'drizzle-orm/pg-core'
 
-export const driver_locations = pgTable(
+export const driverLocations_schema = pgTable(
 	'driver_locations',
 	{
 		driver_id: varchar('driver_id', { length: 30 }).notNull(),
