@@ -10,7 +10,6 @@
 		"dev:frontend": "cd consumer && npm run dev",
 		"source": "tsx watch src/source.ts",
 		"setup": "rm -rf node_modules && npm i && husky && cd consumer && rm -rf node_modules && npm i",
-		"prepublishOnly": "npm run build",
 		"build": "tsup",
 		"lint": "npx @biomejs/biome check --write"
 	},

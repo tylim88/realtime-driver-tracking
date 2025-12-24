@@ -53,3 +53,5 @@ export const driverLocations_sub = async (callback: (data: Data) => void) => {
 
 // https://medium.com/manifoldco/using-redis-streams-for-time-series-25de5b12bb46
 // https://www.youtube.com/watch?v=rBlnHJZKD_M
+// https://medium.com/@ys.yogendra22/system-design-real-time-car-tracking-app-64ce6db83898
+// https://dev.to/codexam/building-a-scalable-real-time-driver-tracking-system-26ei
