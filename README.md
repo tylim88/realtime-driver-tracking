@@ -84,6 +84,8 @@ select a driver and pick a date time then click `connect`
 
 I am not sure why but I can't get continuous data from the original source, so I generate the data myself
 
+open a new terminal and run
+
 ```sh
 npm run source
 ```
