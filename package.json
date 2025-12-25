@@ -5,11 +5,11 @@
 	"private": "true",
 	"scripts": {
 		"dev": "npm-run-all -p dev:ingestion dev:subscription dev:frontend",
-		"dev:ingestion": "tsx watch src/ingestion.ts",
-		"dev:subscription": "tsx watch src/subscription.ts",
+		"dev:ingestion": "bun --watch src/ingestion.ts",
+		"dev:subscription": "bun --watch src/subscription.ts",
 		"dev:frontend": "cd consumer && npm run dev",
 		"source": "tsx watch src/source.ts",
-		"setup": "rm -rf node_modules && npm i && husky && cd consumer && rm -rf node_modules && npm i",
+		"setup": "rm -rf node_modules && bun install && husky && cd consumer && rm -rf node_modules && npm i",
 		"build": "tsup",
 		"lint": "npx @biomejs/biome check --write"
 	},
@@ -36,7 +36,6 @@
 	},
 	"dependencies": {
 		"elysia": "^1.4.19",
-		"@elysiajs/node": "^1.4.2",
 		"@neondatabase/serverless": "^1.0.2",
 		"dotenv": "^17.2.3",
 		"drizzle-orm": "^0.45.1",

@@ -63,7 +63,7 @@ export const Screen_Home = () => {
 									const icon = index ? IconX : IconSteeringWheel
 									return (
 										<Marker
-											key={recorded_at}
+											key={recorded_at + latitude + longitude}
 											position={[latitude, longitude]}
 											icon={icon}
 										>
