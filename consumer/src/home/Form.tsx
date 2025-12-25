@@ -1,5 +1,6 @@
 import { treaty } from '@elysiajs/eden'
-import { NumberInput, Select, SimpleGrid } from '@mantine/core'
+import { Button, NumberInput, Select, SimpleGrid, Text } from '@mantine/core'
+import { DateTimePicker } from '@mantine/dates'
 import { notifications } from '@mantine/notifications'
 import {
 	IconCircleCheckFilled,
@@ -35,7 +36,7 @@ export const Form = ({ children }: { children: (marks: Marks) => void }) => {
 			driver_id: 1,
 			interval_type: 'second',
 			interval_value: 5,
-			since: '',
+			since: new Date().toISOString(),
 		},
 	})
 
@@ -139,15 +140,14 @@ export const Form = ({ children }: { children: (marks: Marks) => void }) => {
 					)}
 				/>
 				<Controller
-					name="driver_id"
+					name="since"
 					control={control}
 					render={({ field, fieldState }) => (
-						<NumberInput
-							allowDecimal={false}
-							label="Driver ID"
+						<DateTimePicker
+							valueFormat="DD MMM YYYY hh:mm A"
+							popoverProps={{ zIndex: 1000 }}
+							label="Since"
 							{...field}
-							min={1}
-							max={10}
 							error={fieldState.error?.message}
 						/>
 					)}
@@ -157,7 +157,7 @@ export const Form = ({ children }: { children: (marks: Marks) => void }) => {
 					control={control}
 					render={({ field, fieldState }) => (
 						<Select
-							label="Interval Type"
+							label="Data Interval Type"
 							data={
 								['second', 'minute', 'hour'] satisfies Query['interval_type'][]
 							}
@@ -172,14 +172,19 @@ export const Form = ({ children }: { children: (marks: Marks) => void }) => {
 					render={({ field, fieldState }) => (
 						<NumberInput
 							allowDecimal={false}
-							label="Interval Value"
+							label="Data Interval"
 							{...field}
 							min={1}
+							max={100}
 							error={fieldState.error?.message}
 						/>
 					)}
 				/>
 			</SimpleGrid>
+			<Button my="xl">Connect</Button>
+			{isSubmitSuccessful && (
+				<Text size="lg">Monitoring driver {getValues('driver_id')}</Text>
+			)}
 			{children(marks)}
 		</>
 	)

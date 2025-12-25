@@ -3,8 +3,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@mantine/core/styles.css'
 import '@mantine/notifications/styles.css'
+import '@mantine/dates/styles.css'
 import { Notifications } from '@mantine/notifications'
-import App from './App.tsx'
+import { Screen_Home } from '@/home'
 
 const root = document.getElementById('root')
 
@@ -13,7 +14,7 @@ if (root)
 		<StrictMode>
 			<MantineProvider>
 				<Notifications />
-				<App />
+				<Screen_Home />
 			</MantineProvider>
 		</StrictMode>,
 	)
