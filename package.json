@@ -14,7 +14,7 @@
 		"lint": "npx @biomejs/biome check --write"
 	},
 	"lint-staged": {
-		"*": [
+		"*.{ts,json}": [
 			"npm run lint"
 		]
 	},
