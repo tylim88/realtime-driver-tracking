@@ -58,7 +58,9 @@ export const driverLocation_ws = () => {
 		// when websocket close
 		close: (ws) => {
 			const { driver_id } = ws.data.query
-			subscribers.get(driver_id)?.delete(ws)
+			const isDeleteSuccessful = subscribers.get(driver_id)?.delete(ws)
+			if (!isDeleteSuccessful)
+				console.error('warning, delete ws unsuccessful, may cause memory leak')
 			if (!subscribers.get(driver_id)?.size) subscribers.delete(driver_id)
 		},
 	})
