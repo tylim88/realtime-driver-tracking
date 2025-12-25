@@ -89,3 +89,6 @@ open a new terminal and run
 ```sh
 npm run source
 ```
+
+## Video Demo
+[![video demo](https://img.youtube.com/vi/5Nr1P-aNtG8/maxresdefault.jpg)](https://youtu.be/5Nr1P-aNtG8)
