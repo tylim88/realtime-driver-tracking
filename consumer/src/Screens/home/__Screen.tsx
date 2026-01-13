@@ -1,14 +1,9 @@
 import { Box, Container } from '@mantine/core'
-import { useEffect } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { Form } from './Form'
 import { Markers } from './Markers'
 
 export const Screen_Home = () => {
-	useEffect(() => {
-		console.log('Screen_Home rerender')
-	})
-
 	return (
 		<Container
 			h="100vh"
