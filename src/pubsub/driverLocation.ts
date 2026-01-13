@@ -1,7 +1,6 @@
 import { redis } from './__client'
 
 const pub = redis()
-const sub = redis()
 const name = 'driverLocation'
 
 type Data = {
@@ -16,6 +15,11 @@ export const driverLocations_pub = async (data: Data) =>
 	pub.xadd(name, 'MAXLEN', '~', 1000, '*', 'data', JSON.stringify(data))
 
 export const driverLocations_sub = async (callback: (data: Data) => void) => {
+	// one ioredis instance = one connection https://redis.io/docs/latest/develop/clients/nodejs/migration/
+	// create the sub instance the function to make sure that 1 xread = 1 connection when someone call this function (not in this repository, this repository only require one xread)
+	// according to https://github.com/redis/lettuce/wiki/Pipelining-and-command-flushing : If you use Redis-blocking commands (e. g. BLPOP) all invocations of the shared connection will be blocked until the blocking command returns which impacts the performance of other threads. Blocking commands can be a reason to use multiple connections.
+	// which mean multiple xread with one connection block each other
+	const sub = redis()
 	// https://github.com/redis/ioredis/issues/747#issuecomment-500735545
 	// https://redis.io/docs/latest/commands/xread/
 	let lastId = '$'
