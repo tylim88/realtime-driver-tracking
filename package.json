@@ -4,12 +4,12 @@
 	"version": "0.0.0",
 	"private": "true",
 	"scripts": {
-		"dev": "npm-run-all -p dev:ingestion dev:subscription dev:frontend",
+		"dev": "npm-run-all -p dev:ingestion dev:consumer dev:frontend",
 		"dev:ingestion": "bun --watch src/ingestion.ts",
-		"dev:subscription": "bun --watch src/subscription.ts",
-		"dev:frontend": "cd consumer && npm run dev",
+		"dev:consumer": "bun --watch src/consumer.ts",
+		"dev:frontend": "cd FrontEnd && npm run dev",
 		"source": "tsx watch src/source.ts",
-		"setup": "rm -rf node_modules && bun install && husky && cd consumer && rm -rf node_modules && npm i",
+		"setup": "rm -rf node_modules && bun install && husky && cd FrontEnd && rm -rf node_modules && npm i",
 		"build": "tsup",
 		"lint": "npx @biomejs/biome check --write"
 	},
