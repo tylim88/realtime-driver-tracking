@@ -109,3 +109,7 @@ https://1drv.ms/p/c/51b9de335e9a5f2e/IQAlsqsWA_2-QLYljlmgBqRTAdZJqY5weowPgedLp4x
 ## Folder Structure
 
 ![folder structure](./img/folderStructure.png)
+
+## Code Flowchart
+
+![code flow chart](./img/flowchart.png)
