@@ -105,3 +105,7 @@ https://1drv.ms/p/c/51b9de335e9a5f2e/IQAlsqsWA_2-QLYljlmgBqRTAdZJqY5weowPgedLp4x
 ## Video Demo
 
 [![video demo](https://img.youtube.com/vi/5Nr1P-aNtG8/maxresdefault.jpg)](https://youtu.be/5Nr1P-aNtG8)
+
+## Folder Structure
+
+![folder structure](./img/folderStructure.png)
