@@ -1,7 +1,7 @@
 import { db, driverLocations_schema } from '@/db'
-import { driverLocations_consume } from '@/streaming'
+import { driverLocations_consume_group } from '@/streaming'
 
-driverLocations_consume(
+driverLocations_consume_group(
 	async ({ driver_id, latitude, longitude, recorded_at }) => {
 		await db
 			.insert(driverLocations_schema)
