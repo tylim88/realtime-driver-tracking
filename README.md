@@ -1,5 +1,8 @@
 # Realtime Driver Tracking
 
+## Note
+This repository is outdated and does not reflect my latest design
+
 ## Setup
 
 Note: I messed up a bit and run out of time to fix it, here we use bun instead of nodejs
